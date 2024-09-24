@@ -3,10 +3,14 @@
     {{ title }}
   </h1>
   <p>Current player: {{currentPlayer}}</p>
+  <p>{{message}}</p>
 </div>
 <div class="grid">
-  <div *ngFor="let box of boxes; let i = index" class="box" (click)="onBoxClick(i, $event)">
-    {{ box }}
+
+  <div *ngFor="let row of boxes; let i = index" class="row">
+    <div *ngFor="let box of row; let j = index" class="box" (click)="onBoxClick(i, j, $event)">
+      {{ box.innerText }}
+    </div>
   </div>
 </div>
 
